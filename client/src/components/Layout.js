@@ -1,12 +1,12 @@
 // Layout.js
-import React from 'react';
-import Sidebar from './Sidebar';
-import Dashboard from './Dashboard';
+import React from "react";
+import Sidebar from "./Sidebar";
+import Dashboard from "./Dashboard";
 
 const Layout = () => {
   return (
     <div className="flex">
-      <Sidebar />
+        <Sidebar />
       <main className="flex-1 bg-gray-100">
         <Dashboard />
       </main>

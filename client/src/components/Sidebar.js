@@ -14,7 +14,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 const Sidebar = () => {
   return (
-    <div className="w-[255px] h-screen bg-white p-8">
+    <div className="w-[255px] h-screen bg-white p-8 hidden lg:block">
       <div className="text-purple-600 text-xl font-bold mb-10 p-4 text-center">
         StreetDine
       </div>
