@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import DashboardCard from "./DashboardCard";
 import NewOrder from "./NewOrder";
