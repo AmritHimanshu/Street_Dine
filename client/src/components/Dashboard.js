@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import DashboardCard from "./DashboardCard";
 import NewOrder from "./NewOrder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Dashboard = () => {
   const today = new Date();
@@ -13,6 +14,7 @@ const Dashboard = () => {
   };
   const formattedDate = today.toLocaleDateString("en-GB", options);
 
+  const [isSidebar, setIsSidebar] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const popupRef = useRef(null);
 
@@ -48,7 +50,12 @@ const Dashboard = () => {
       className="pb-16 pt-5 px-5 lg:py-12 lg:px-12 relative h-screen overflow-auto"
     >
       <div className="flex items-center justify-between mb-5 md:mb-10">
-        <h1 className="text-md lg:text-2xl font-bold">Dashboard</h1>
+        <div className="flex space-x-2">
+          <div className="block md:hidden">
+            <MenuIcon onClick={() => setIsSidebar((prev) => !prev)} />
+          </div>
+          <h1 className="text-md lg:text-2xl font-bold">Dashboard</h1>
+        </div>
 
         <div className="flex items-center justify-center space-x-5">
           <p className="font-semibold text-md lg:text-xl text-gray-700 hidden md:block">
