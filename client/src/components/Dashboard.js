@@ -32,9 +32,11 @@ const Dashboard = () => {
     const scrollableElement = document.getElementById("scrollable-content");
     if (isPopupVisible) {
       scrollableElement.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       scrollableElement.style.overflow = "";
+      document.body.style.overflow = '';
       document.removeEventListener("mousedown", handleClickOutside);
     }
 
