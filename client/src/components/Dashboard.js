@@ -18,20 +18,24 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    const scrollableElement = document.getElementById("scrollable-content");
     if (isPopupVisible) {
+      scrollableElement.style.overflow = "hidden";
       document.addEventListener("mousedown", handleClickOutside);
     } else {
+      scrollableElement.style.overflow = "";
       document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
+      scrollableElement.style.overflow = "";
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isPopupVisible]);
 
   return (
-    <div className="py-12 pl-12 relative h-[100vh] overflow-auto">
-      <div>
+    <div id="scrollable-content" className="py-12 pl-12 relative h-[100vh] overflow-auto">
+      
         <h1 className="text-2xl font-bold mb-10">Dashboard</h1>
         <div className="flex space-x-10 mb-6">
           <button className="bg-white text-gray-600 py-2 px-6 rounded-md">
@@ -62,14 +66,13 @@ const Dashboard = () => {
           <DashboardCard table="T3" token="Token - 9" order="Order #022" />
           <DashboardCard table="T2" token="Token - 7" order="Order #021" />
         </div>
-      </div>
 
       {isPopupVisible && (
         <div
           ref={popupRef}
           className="absolute z-50 top-0 right-0 w-ful h-[100vh]"
         >
-          <NewOrder onClick={togglePopup}/>
+          <NewOrder onClick={togglePopup} />
         </div>
       )}
     </div>
